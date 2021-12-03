@@ -4,25 +4,20 @@ import style from "./ContextShop.module.css";
 import Products from "../ContextProducts";
 import { ThemeContest } from "../../../context";
 import { THEME } from "../../../theme";
+import WithThemeComponent from "../../HOCs";
 
-class ContextShop extends Component {
-  render() {
-    return (
-      <ThemeContest.Consumer>
-        {([value, setTheme]) => {
-          const className = cx(style.shop, {
-            [style.light]: value === THEME.LIGHT,
-            [style.black]: value === THEME.BLACK,
-          });
-          return (
-            <div className={className}>
-              <Products />
-            </div>
-          );
-        }}
-      </ThemeContest.Consumer>
-    );
-  }
-}
+const ContextShop = ({ value, setTheme }) => {
+  const className = cx(style.shop, {
+    [style.light]: value === THEME.LIGHT,
+    [style.black]: value === THEME.BLACK,
+  });
+  return (
+    <div className={className}>
+      <Products />
+    </div>
+  );
+};
 
-export default ContextShop;
+const HeaderWithTheme = WithThemeComponent(ContextShop);
+
+export default HeaderWithTheme;

@@ -1,3 +1,7 @@
+.shop {
+  flex: 1 0 auto;
+}
+
 
 .light {
   background-color: #eee;

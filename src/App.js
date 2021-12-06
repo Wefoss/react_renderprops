@@ -1,6 +1,5 @@
 import "./App.css";
 import React, { Component } from "react";
-import Mouse from "./components/Mouse";
 import ContextShop from "./components/Context/ContextShop";
 import HeaderWithTheme from "./components/Context/ContextHeader";
 import FooterWithTheme from "./components/Context/ContextFooter";
@@ -50,7 +49,7 @@ class App extends Component {
 
   render() {
     const { theme, products, lang } = this.state;
-    console.log(lang);  return (
+    return (
       <ThemeContest.Provider value={[theme, this.setTheme]}>
         <ProductsContext.Provider value={products}>
           <div className="App">
